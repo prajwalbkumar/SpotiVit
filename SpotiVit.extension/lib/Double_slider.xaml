@@ -1,0 +1,39 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterScreen"
+        HorizontalContentAlignment="Center"
+        Title="Select distance between grid end and crop region" Height = "350" Width="400">
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="The sliders represent distance in mm on sheet. Default value set to 15 mm." 
+                    HorizontalAlignment="Left" TextWrapping="Wrap" Margin="10"/>
+        <CheckBox x:Name="equalValuesCheckBox" Content="Set all sliders to equal value" Margin="10"/>
+        <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="310"/> 
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>    
+                            <RowDefinition Height="Auto" /> 
+                            <RowDefinition Height="Auto" /> 
+                            <RowDefinition Height="Auto" /> 
+                            <RowDefinition Height="Auto" /> 
+                            <RowDefinition Height="Auto" /> 
+                            <RowDefinition Height="Auto" /> 
+                            <RowDefinition Height="Auto" /> 
+                            <RowDefinition Height="Auto" /> 
+                            <RowDefinition Height="Auto" /> 
+                        </Grid.RowDefinitions>
+
+            <TextBlock Text="Left side offset" Grid.Row="0" Grid.ColumnSpan="2" Margin="0"/>
+            <TextBlock Text="{Binding ElementName=Sl_left, Path=Value}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0" />
+            <Slider x:Name="Sl_left" Grid.Row="1" Grid.Column="1" Minimum="0" Maximum="100" Value="15" TickFrequency="1" IsSnapToTickEnabled="True" Margin="10" />
+
+            <TextBlock Text="Right side offset" Grid.Row="3" Grid.ColumnSpan="2" Margin="0"/>
+            <TextBlock Text="{Binding ElementName=Sl_right, Path=Value}" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="0" />
+            <Slider x:Name="Sl_right" Grid.Row="4" Grid.Column="1" Minimum="0" Maximum="100" Value="40" TickFrequency="1" IsSnapToTickEnabled="True" Margin="10" />
+
+        </Grid>
+        <Button x:Name="Submit" Content="Submit"  Width="360" Height="25" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+    </StackPanel>
+</Window>
