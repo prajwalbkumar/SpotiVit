@@ -1,5 +1,5 @@
 #!python3
-__title__ = "Volume Up"
+__title__ = "Volume Down"
 
 import sys
 sys.path.append(r'C:\Users\arpra\AppData\Local\Programs\Python\Python38\Lib\site-packages')
