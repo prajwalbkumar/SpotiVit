@@ -1,5 +1,5 @@
 #!python3
-__title__ = "Shuffle"
+__title__ = "Previous"
 
 import sys
 sys.path.append(r'C:\Users\arpra\AppData\Local\Programs\Python\Python38\Lib\site-packages')
