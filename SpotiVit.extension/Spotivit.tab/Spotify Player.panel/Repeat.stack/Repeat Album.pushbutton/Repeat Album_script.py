@@ -1,5 +1,5 @@
 #!python3
-__title__ = "Repeat"
+__title__ = "Repeat Album"
 
 import sys
 sys.path.append(r'C:\Users\arpra\AppData\Local\Programs\Python\Python38\Lib\site-packages')
@@ -42,4 +42,4 @@ else:
 
 # Select the first available device
 if active_device:
-    sp.next_track(device_id=active_device)
+    sp.repeat(state="context", device_id=active_device)
