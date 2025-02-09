@@ -1,5 +1,5 @@
 #!python3
-__title__ = "Play/Pause"
+__title__ = "Shuffle"
 
 import sys
 sys.path.append(r'C:\Users\arpra\AppData\Local\Programs\Python\Python38\Lib\site-packages')
@@ -33,7 +33,7 @@ active_device = None
 
 for device in device_list:
     if device.get("is_active"):
-        active_device = device.get("id")
+        active_device= device.get("id")
         break
 
 else:
@@ -42,12 +42,5 @@ else:
 
 # Select the first available device
 if active_device:
-    
-    # Get current playback state
-    playback = sp.current_playback()
-
-    # Toggle play/pause based on current state
-    if playback and playback['is_playing']:
-        sp.pause_playback(device_id=active_device)
-    else:
-        sp.start_playback(device_id=active_device)
+    sp.shuffle(state=True, device_id=active_device)
+    sp.next_track(device_id=active_device)

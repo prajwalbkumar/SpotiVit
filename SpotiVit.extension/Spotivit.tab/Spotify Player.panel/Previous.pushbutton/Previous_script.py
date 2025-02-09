@@ -1,5 +1,5 @@
 #!python3
-__title__ = "Play/Pause"
+__title__ = "Shuffle"
 
 import sys
 sys.path.append(r'C:\Users\arpra\AppData\Local\Programs\Python\Python38\Lib\site-packages')
@@ -8,7 +8,6 @@ import os
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
 from dotenv import load_dotenv
-from pyrevit import script
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 env_path = os.path.abspath(os.path.join(current_dir, '..', '..', '..', '.env'))
@@ -34,21 +33,12 @@ active_device = None
 
 for device in device_list:
     if device.get("is_active"):
-        active_device = device.get("id")
+        active_device= device.get("id")
         break
 
 else:
     print("❌ No active devices found. Open Spotify on a device.")
 
-
 # Select the first available device
 if active_device:
-    
-    # Get current playback state
-    playback = sp.current_playback()
-
-    # Toggle play/pause based on current state
-    if playback and playback['is_playing']:
-        sp.pause_playback(device_id=active_device)
-    else:
-        sp.start_playback(device_id=active_device)
+    sp.previous_track(device_id=active_device)
